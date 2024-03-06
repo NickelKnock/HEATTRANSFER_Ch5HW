@@ -101,15 +101,15 @@ steady_state_full = np.vstack([steady_state_values, np.flipud(steady_state_value
 im1 = ax1.imshow(steady_state_full, cmap='hot', origin='lower', extent=(0, length, 0, height))
 fig.colorbar(im1, ax=ax1)
 ax1.set_title('Steady-state Temperature Distribution')
-ax1.set_xlabel('Length (m)')
+ax1.set_xlabel('Length (10*cm)')
 ax1.set_ylabel('Height (m)')
 
 # Set up the transient temperature distribution heatmap
-im2 = ax2.imshow(T_over_time[0], cmap='hot', origin='lower', aspect='auto', extent=(0, length, 0, height))
+im2 = ax2.imshow(T_over_time[0], cmap='hot', origin='upper', aspect='auto', extent=(0, length, 0, height))
 fig.colorbar(im2, ax=ax2)
 ax2.set_title("Transient Temperature Distribution at t = 0 seconds")
 ax2.set_xlabel('Length (m)')
-ax2.set_ylabel('Height (m)')
+ax2.set_ylabel('Height (10*cm)')
 
 # Animation update function
 def animate(i):
@@ -125,4 +125,4 @@ plt.show()
 
 # If needed, uncomment the line below to save the animation to a file.
 #anim.save('heat_transfer_simulation.mp4', writer='ffmpeg', fps=20)
-#anim.save('heat_transfer_simulation.gif', writer='pillow', fps=20)
+anim.save('heat_transfer_simulation.gif', writer='pillow', fps=20)
